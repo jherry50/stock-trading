@@ -16,8 +16,8 @@
           Save & Load
         </router-link>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <router-link class="dropdown-item" to="/"  tag="li">Save Data</router-link>
-          <router-link class="dropdown-item" to="/"  tag="li">Load Data</router-link>
+          <li class="dropdown-item nav-link"   tag="li" @click= "saveData">Save Data</li>
+          <li class="dropdown-item nav-link"  tag="li" @click = "loadData">Load Data</li>
         </ul>
       </li>
       <li class="nav-item">
@@ -40,7 +40,8 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import {mapActions} from 'vuex';
+import axios from 'axios';
 
 export default {
   computed: {
@@ -49,11 +50,24 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'randomizeStocks'
-    ]),
+    ...mapActions({
+      randomizeStocks:'randomizeStocks',
+      fetchData : 'loadData'
+    }),
     endDay() {
       this.randomizeStocks();
+    },
+    saveData(){
+      const data = {
+        funds: this.$store.getters.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks
+      };
+      axios.put('data.json', data)
+
+    },
+    loadData(){
+      this.fetchData();
     }
   }
 }

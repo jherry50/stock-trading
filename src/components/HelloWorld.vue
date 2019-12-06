@@ -1,16 +1,15 @@
 <template>
   <div>
     <div class="row hello flex justify-content-center">
-      <div class="col-6 text-white">
+      <div class="col-md-6 text-white">
       <h1>Trade or View your Portfolio</h1>
       <br>
       <h6>You may Save & Load your Data</h6>
       <h6>Click on 'End Day' to begin a New Day!</h6>
       <br>
-      <button class="btn btn-success"> Get Started </button>
-      
+      <router-link class="btn btn-success" tag="button" to="./stocks">Get Started</router-link>
       </div>
-      <div class="col-6 text-center sec2 text-light">
+      <div class="col-md-6 text-center sec2 text-light">
         <h1>Your Funds</h1>
         <br>
         <h2>
