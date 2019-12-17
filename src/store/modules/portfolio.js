@@ -21,8 +21,8 @@ const mutations = {
 
     'SELL_STOCK' (state, {stockId, quantity, stockPrice}){
         const record = state.stocks.find(element => element.id ==stockId);
+        record.quantity = Number(record.quantity)
         if (record.quantity > quantity) {
-            record.quantity = Number(record.quantity)
             record.quantity -= Number(quantity);
         } else {
             state.stocks.splice(state.stocks.indexOf(record), 1);

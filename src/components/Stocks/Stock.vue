@@ -1,32 +1,27 @@
 <template>
-        <div class=" col-sm-6 sstock">
-            <div class="card border-primary">
-                <div class="card-header bg-success">
-                    <h5 class="card-title">
-                        {{stock.name}} <small> (price: {{stock.price}}) </small>
-                    </h5>
-                    
-                </div>
-                <div class="card-body row">
-                    <div class="pull-left col-9">
-                        <input
-                        type="number"
-                        class="form-control"
-                        placeholder="Quantity"
-                        v-model="quantity">
-                    </div>
-                    <div class="pull-right col-3">
-                        <button 
-                        class="btn btn-primary"
-                        @click="buyStockOrder"
-                        :disabled="this.quantity <= 0 || insufficientFunds ">
-                            {{ insufficientFunds ? 'low funds' : 'buy'}}
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </div> 
+        <!-- second column -->
+    <div class="col-lg-6 bg-light sstock">
+        <div>
+            <h5 class="card-title">
+                    {{stock.name}} <small> (price: {{stock.price}}) </small>
+                </h5>
+        </div><hr>
+        <div>
+            <input
+                type="number"
+                class="form-control"
+                placeholder="Quantity"
+                v-model="quantity">
+        </div>
+        <div>
+           <button 
+                class="btn btn-success"
+                @click="buyStockOrder"
+                :disabled="this.quantity <= 0 || insufficientFunds ">
+                    {{ insufficientFunds ? 'low funds' : 'buy'}}
+            </button> 
+        </div>
+    </div>
     
     
 </template>
@@ -64,8 +59,17 @@ export default {
 }
 </script>
 <style scoped>
-.sstock {
-    margin-bottom: 1em;
+.sstock{
+    border: 1px solid rgb(211, 210, 210);
+    padding: 1em;
+    margin: 2em;
+    max-width: 700px;
+    display: inline-block;
+    box-shadow: 5px 5px 15px 8px rgb(223, 223, 223);
+}
+.sstock button {
+    margin-top: 1em;
+    width: 5em;
 }
 
 </style>
