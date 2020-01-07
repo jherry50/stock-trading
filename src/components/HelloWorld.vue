@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row hello flex justify-content-center">
-      <div class="col-md-6 text-white">
+      <div class=" col-sm-6 text-white">
       <h1>Trade or View your Portfolio</h1>
       <br>
       <h6>You may Save & Load your Data</h6>
@@ -9,7 +9,7 @@
       <br>
       <router-link class="btn btn-success" tag="button" to="./stocks">Get Started</router-link>
       </div>
-      <div class="col-md-6 text-center sec2 text-light">
+      <div class="col-sm-6 text-center sec2 text-light">
         <h1>Your Funds</h1>
         <br>
         <h2>
@@ -40,11 +40,13 @@ export default {
   height: 600px;
   background-image: url('../assets/stocks.jpg');
   background-repeat: no-repeat;
-  padding:150px 100px;
+  padding: 5rem;
+  margin: 0;
+  width: 100%;
 
 }
 .hello div {
-  height: 300px;
+  height: auto;
 }
 .sec2 {
   background-color: rgba(119, 16, 16, 0.27);

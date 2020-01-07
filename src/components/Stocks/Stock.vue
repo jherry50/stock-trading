@@ -69,7 +69,7 @@ export default {
 }
 .sstock button {
     margin-top: 1em;
-    width: 5em;
+    max-width: 10em;
 }
 
 </style>
